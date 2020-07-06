@@ -13,32 +13,36 @@ const BasicCard = () => {
     padding: "12px",
   };
 
-  const ContentContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 0px;
-    @media (max-width: 1214px) {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    @media (max-width: 714px) {
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    }
+  const FirstRow = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `;
+  const SecondRow = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   `;
   const CardContent = styled.div`
     padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   `;
   return (
     <div>
       <div className='site-card-wrapper'>
         <Card style={card} bordered={false}>
-          <ContentContainer>
+          <FirstRow>
             <CardContent>Card Content</CardContent>
             <CardContent>Card Content</CardContent>
             <CardContent>Card Content</CardContent>
+          </FirstRow>
+          <SecondRow>
             <CardContent>Card Content</CardContent>
             <CardContent>Card Content</CardContent>
             <CardContent>Card Content</CardContent>
-          </ContentContainer>
+          </SecondRow>
         </Card>
       </div>
     </div>
