@@ -7,6 +7,15 @@ const Homepage = () => {
     <div>
       <Banner />
       <BasicCard />
+      <BasicCard />
+      <BasicCard />
+      <BasicCard />
+      <BasicCard />
+      <BasicCard />
+      <BasicCard />
+      <BasicCard />
+      <BasicCard />
+      <BasicCard />
     </div>
   );
 };
