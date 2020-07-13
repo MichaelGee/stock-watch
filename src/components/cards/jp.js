@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "antd";
 import styled from "styled-components";
 
-const BasicCard = () => {
+const JP = () => {
   const card = {
     borderRadius: "5px",
     // backgroundColor: "#E1F8EF",
@@ -23,7 +23,7 @@ const BasicCard = () => {
   return (
     <div>
       <CardWrapper>
-        <Card style={card} title='Card Title'>
+        <Card style={card} title='J P Morgan Chase & Co'>
           <Card.Grid hoverable={false}>Content</Card.Grid>
           <Card.Grid hoverable={false}>Content</Card.Grid>
           <Card.Grid hoverable={false}>Content</Card.Grid>
@@ -36,4 +36,4 @@ const BasicCard = () => {
   );
 };
 
-export default BasicCard;
+export default JP;
