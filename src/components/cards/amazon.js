@@ -2,6 +2,13 @@ import React from "react";
 import { Card } from "antd";
 import styled from "styled-components";
 
+const CardWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+`;
+
 const Amazon = () => {
   const card = {
     borderRadius: "5px",
@@ -12,13 +19,6 @@ const Amazon = () => {
     padding: "0px",
     textAlign: "left",
   };
-
-  const CardWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem 0;
-  `;
 
   return (
     <div>

@@ -1,21 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-const Banner = () => {
-  const Banner = styled.div`
-    background-color: #184df1;
-    height: 20rem;
-  `;
 
-  const Brand = styled.h1`
-    color: white;
-    text-align: left;
-    padding: 1rem;
-  `;
+const Brand = styled.h1`
+  color: white;
+  text-align: left;
+  padding: 1rem;
+`;
+
+const BlueBanner = styled.div`
+  background-color: #015ABE;
+  height: 20rem;
+`;
+
+const Banner = () => {
   return (
     <div>
-      <Banner>
+      <BlueBanner>
         <Brand>Stock Watch</Brand>
-      </Banner>
+      </BlueBanner>
     </div>
   );
 };
