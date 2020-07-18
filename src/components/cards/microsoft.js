@@ -9,7 +9,10 @@ const CardWrapper = styled.div`
   margin: 2rem 0;
 `;
 
-const Microsoft = () => {
+const Microsoft = ({
+  data: { price, open, close, high, low, volume, vwap },
+}) => {
+  /*  console.log(data.price); */
   const card = {
     borderRadius: "5px",
     // backgroundColor: "#E1F8EF",
@@ -24,12 +27,12 @@ const Microsoft = () => {
     <div>
       <CardWrapper>
         <Card style={card} title='Microsoft'>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
+          <Card.Grid hoverable={false}>Price: ${price}</Card.Grid>
+          <Card.Grid hoverable={false}>Open: {open}</Card.Grid>
+          <Card.Grid hoverable={false}>Close: {close}</Card.Grid>
+          <Card.Grid hoverable={false}>High: {high}</Card.Grid>
+          <Card.Grid hoverable={false}>Low: {low}</Card.Grid>
+          <Card.Grid hoverable={false}>Volume: {volume}</Card.Grid>
         </Card>
       </CardWrapper>
     </div>

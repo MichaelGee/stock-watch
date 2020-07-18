@@ -9,7 +9,8 @@ const CardWrapper = styled.div`
   margin: 2rem 0;
 `;
 
-const Netflix = () => {
+const Netflix = ({ data: { price, open, close, high, low, volume, vwap } }) => {
+  /*  console.log(data.price); */
   const card = {
     borderRadius: "5px",
     // backgroundColor: "#E1F8EF",
@@ -23,13 +24,13 @@ const Netflix = () => {
   return (
     <div>
       <CardWrapper>
-        <Card style={card} title='Walmart'>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
+        <Card style={card} title='Netflix'>
+          <Card.Grid hoverable={false}>Price: ${price}</Card.Grid>
+          <Card.Grid hoverable={false}>Open: {open}</Card.Grid>
+          <Card.Grid hoverable={false}>Close: {close}</Card.Grid>
+          <Card.Grid hoverable={false}>High: {high}</Card.Grid>
+          <Card.Grid hoverable={false}>Low: {low}</Card.Grid>
+          <Card.Grid hoverable={false}>Volume: {volume}</Card.Grid>
         </Card>
       </CardWrapper>
     </div>

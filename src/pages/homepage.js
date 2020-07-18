@@ -17,7 +17,7 @@ import { fetchData } from "../services/apicall";
 //
 
 const Homepage = () => {
-  const [apple, setApple] = React.useState([]);
+  const [apple, setApple] = React.useState({});
   const [exxon, setExxon] = React.useState([]);
   const [att, setAtt] = React.useState([]);
   const [facebook, setFacebook] = React.useState([]);
@@ -33,15 +33,22 @@ const Homepage = () => {
     let localTime = moment().format("hh:mm");
     const getData = async () => {
       try {
-        // World
         const ap = await fetchData("AAPL");
+        setApple(ap.data);
         const ex = await fetchData("XOM");
+        setExxon(ex.data);
         const t = await fetchData("T");
+        setAtt(t.data);
         const fb = await fetchData("FB");
+        setFacebook(fb.data);
         const dis = await fetchData("DIS");
+        setDisney(dis.data);
         const ms = await fetchData("MSFT");
+        setMicrosoft(ms.data);
         const tl = await fetchData("TSLA");
+        setTesla(tl.data);
         const nf = await fetchData("NFLX");
+        setNetflix(nf.data);
       } catch (error) {
         console.log(error);
       }
@@ -85,14 +92,14 @@ const Homepage = () => {
   return (
     <div>
       <Banner />
-      <Apple />
-      <Exxon />
-      <ATT />
-      <Facebook />
-      <Disney />
-      <Microsoft />
-      <Tesla />
-      <Netflix />
+      <Apple data={apple} />
+      <Exxon data={exxon} />
+      <ATT data={att} />
+      <Facebook data={facebook} />
+      <Disney data={disney} />
+      <Microsoft data={microsoft} />
+      <Tesla data={tesla} />
+      <Netflix data={netflix} />
     </div>
   );
 };
