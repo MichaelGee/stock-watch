@@ -9,7 +9,7 @@ const CardWrapper = styled.div`
   margin: 2rem 0;
 `;
 
-const Walmart = () => {
+const Netflix = () => {
   const card = {
     borderRadius: "5px",
     // backgroundColor: "#E1F8EF",
@@ -36,4 +36,4 @@ const Walmart = () => {
   );
 };
 
-export default Walmart;
+export default Netflix;

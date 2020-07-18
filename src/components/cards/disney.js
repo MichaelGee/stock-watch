@@ -9,7 +9,7 @@ const CardWrapper = styled.div`
   margin: 2rem 0;
 `;
 
-const Amazon = () => {
+const Disney = () => {
   const card = {
     borderRadius: "5px",
     // backgroundColor: "#E1F8EF",
@@ -23,7 +23,7 @@ const Amazon = () => {
   return (
     <div>
       <CardWrapper>
-        <Card style={card} title='Amazon'>
+        <Card style={card} title='Mastercard'>
           <Card.Grid hoverable={false}>Content</Card.Grid>
           <Card.Grid hoverable={false}>Content</Card.Grid>
           <Card.Grid hoverable={false}>Content</Card.Grid>
@@ -36,4 +36,4 @@ const Amazon = () => {
   );
 };
 
-export default Amazon;
+export default Disney;
