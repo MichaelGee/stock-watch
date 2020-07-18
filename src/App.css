@@ -1,5 +1,6 @@
 body{
   background: #F5F4F7;
+  scroll-behavior: smooth;
 }
 
 .App {
