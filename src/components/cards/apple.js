@@ -7,6 +7,9 @@ const CardWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin: 2rem 0;
+  @media (max-width: 576px) {
+    margin: 1rem;
+  }
 `;
 
 const Title = styled.div`
@@ -14,6 +17,9 @@ const Title = styled.div`
   padding: 10px 18px;
   font-weight: 600;
   color: black;
+  @media (max-width: 576px) {
+    font-size: 0.6rem;
+  }
 `;
 
 const Apple = ({ data: { price, open, close, high, low, volume } }) => {

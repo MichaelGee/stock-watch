@@ -1,9 +1,4 @@
-import moment from "moment";
 import axios from "axios";
-// import "moment-timezone";
-
-// let newYorkTime = moment().tz("America/New_York").format("hh:mm");
-// let newYorkDate = moment().tz("America/New_York").format("YYYY-MM-DD");
 
 export const fetchData = async (companyData) => {
   let time = "19:59";
