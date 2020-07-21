@@ -2,10 +2,8 @@ import React from "react";
 import Banner from "../components/banner";
 import Apple from "../components/cards/apple";
 import Exxon from "../components/cards/exxon";
-
 import ATT from "../components/cards/att";
 import Facebook from "../components/cards/facebook";
-
 import Disney from "../components/cards/disney";
 import Microsoft from "../components/cards/microsoft";
 import Tesla from "../components/cards/tesla";
@@ -13,8 +11,6 @@ import Netflix from "../components/cards/netflix";
 import moment from "moment";
 import "moment-timezone";
 import { fetchData } from "../services/apicall";
-
-//
 
 const Homepage = () => {
   const [apple, setApple] = React.useState({});
@@ -53,7 +49,7 @@ const Homepage = () => {
         console.log(error);
       }
     };
-    getData();
+    // getData();
     //   if (localTime >= "04:04" && localTime <= "11:50") {
     //     //Make call at 9:30am
     //     setInterval(() => {

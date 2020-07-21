@@ -9,30 +9,39 @@ const CardWrapper = styled.div`
   margin: 2rem 0;
 `;
 
+const Title = styled.div`
+  background: #e8ecef;
+  padding: 10px 18px;
+  font-weight: 600;
+  color: black;
+`;
+
 const Facebook = ({
   data: { price, open, close, high, low, volume, vwap },
 }) => {
-  /*  console.log(data.price); */
-  const card = {
-    borderRadius: "5px",
-    // backgroundColor: "#E1F8EF",
-    boxShadow:
-      "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09)",
-    width: "80vw",
-    padding: "0px",
-    textAlign: "left",
-  };
-
   return (
     <div>
       <CardWrapper>
-        <Card style={card} title='Facebook'>
-          <Card.Grid hoverable={false}>Price: ${price}</Card.Grid>
-          <Card.Grid hoverable={false}>Open: {open}</Card.Grid>
-          <Card.Grid hoverable={false}>Close: {close}</Card.Grid>
-          <Card.Grid hoverable={false}>High: {high}</Card.Grid>
-          <Card.Grid hoverable={false}>Low: {low}</Card.Grid>
-          <Card.Grid hoverable={false}>Volume: {volume}</Card.Grid>
+        <Card className='card'>
+          <Title>Facebook</Title>
+          <Card.Grid className='card-grid' hoverable={false}>
+            Price: ${price}
+          </Card.Grid>
+          <Card.Grid className='card-grid' hoverable={false}>
+            Open: {open}
+          </Card.Grid>
+          <Card.Grid className='card-grid' hoverable={false}>
+            Close: {close}
+          </Card.Grid>
+          <Card.Grid className='card-grid' hoverable={false}>
+            High: {high}
+          </Card.Grid>
+          <Card.Grid className='card-grid' hoverable={false}>
+            Low: {low}
+          </Card.Grid>
+          <Card.Grid className='card-grid' hoverable={false}>
+            Volume: {volume}
+          </Card.Grid>
         </Card>
       </CardWrapper>
     </div>
