@@ -49,7 +49,7 @@ const Homepage = () => {
         console.log(error);
       }
     };
-    // getData();
+    getData();
     //   if (localTime >= "04:04" && localTime <= "11:50") {
     //     //Make call at 9:30am
     //     setInterval(() => {
