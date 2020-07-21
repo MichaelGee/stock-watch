@@ -23,10 +23,6 @@ const Homepage = () => {
   const [netflix, setNetflix] = React.useState([]);
 
   React.useEffect(() => {
-    // let newYorkTime = moment().tz("America/New_York").format("hh:mm");
-    // let newYorkDate = moment().tz("America/New_York").format("YYYY-MM-DD");
-    let localDay = moment().format("YYYY-MM-DD");
-    let localTime = moment().format("hh:mm");
     const getData = async () => {
       try {
         const ap = await fetchData("AAPL");
@@ -49,13 +45,23 @@ const Homepage = () => {
         console.log(error);
       }
     };
-    getData();
-    //   if (localTime >= "04:04" && localTime <= "11:50") {
-    //     //Make call at 9:30am
-    //     setInterval(() => {
-    //       getData();
-    //     }, 30000);
-    //   }
+    // getData();
+    let newYorkTime = moment().tz("America/New_York").format("HH:mm");
+    let newYorkDate = moment()
+      .tz("America/New_York")
+      .format("YYYY-MM-DD hh:mm");
+    let dayName = moment(newYorkDate).format("dddd");
+    if (
+      newYorkTime >= "09:30" &&
+      newYorkTime <= "16:00" &&
+      dayName !== "Saturday" &&
+      "Sunday"
+    ) {
+      //Make call at 9:30am
+      setInterval(() => {
+        getData();
+      }, 30000);
+    }
   }, []);
 
   // setInterval(() => {
@@ -74,16 +80,16 @@ const Homepage = () => {
   //   }
   // }, 10000);
 
-  // let newYorkTime = moment().tz("America/New_York").format("hh:mm");
+  //let newYorkTime = moment().tz("America/New_York").format("hh:mm");
 
   //  900000
   // let newYorkTime = moment().tz("America/New_York").format("YYYY-MM-DD");
-  //let localDay = moment().format("YYYY-MM-DD hh:mm");
-  // let localTime = moment().format("hh:mm");
 
-  // console.log(newYorkTime);
+  //let localTime = moment().format("hh:mm");
+
+  //console.log(newYorkTime);
   //console.log(localDay);
-  // console.log(localTime);
+  //console.log(dayName);
 
   return (
     <div>
