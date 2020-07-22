@@ -53,7 +53,7 @@ const Homepage = () => {
     let newYorkTime = moment().tz("America/New_York").format("HH:mm");
     let newYorkDate = moment()
       .tz("America/New_York")
-      .format("YYYY-MM-DD hh:mm");
+      .format("YYYY-MM-DD HH:mm");
     let dayName = moment(newYorkDate).format("dddd");
     if (
       newYorkTime >= "09:30" &&

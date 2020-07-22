@@ -1,15 +1,18 @@
 import axios from "axios";
+import moment from "moment";
+import "moment-timezone";
 
+// console.log(newYorkTime);
+// console.log(newYorkDate);
 export const fetchData = async (companyData) => {
-  let time = "19:59";
-  let date = "2020-07-17";
-
-  let url = `https://sandbox.tradier.com/v1/markets/timesales?symbol=${companyData}&interval=1min&start=${date} ${time}&end=${date} ${time}&session_filter=all`;
+  let newYorkTime = moment().tz("America/New_York").format("HH:mm");
+  let newYorkDate = moment().tz("America/New_York").format("YYYY-MM-DD");
+  let url = `https://sandbox.tradier.com/v1/markets/timesales?symbol=${companyData}&interval=1min&start=${newYorkDate} ${newYorkTime}&end=${newYorkDate} ${newYorkTime}&session_filter=open`;
   try {
     const {
       data: { series },
     } = await axios.get(
-      url,
+      decodeURI(url),
 
       {
         headers: {

@@ -21,6 +21,10 @@ const Title = styled.div`
     font-size: 0.6rem;
   }
 `;
+// If you want the number at 3DPs, change the two "100s" to "1000s"
+const modifyPrice = (price) => {
+  return Math.round((price + Number.EPSILON) * 100) / 100;
+};
 
 const Facebook = ({
   data: { price, open, close, high, low, volume, vwap },
@@ -31,7 +35,7 @@ const Facebook = ({
         <Card className='card'>
           <Title>Facebook</Title>
           <Card.Grid className='card-grid' hoverable={false}>
-            Price: ${price}
+            Price: ${modifyPrice(price)}
           </Card.Grid>
           <Card.Grid className='card-grid' hoverable={false}>
             Open: {open}
