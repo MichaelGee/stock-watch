@@ -1,16 +1,17 @@
-import React from 'react';
-import Banner from '../components/banner';
-import Apple from '../components/cards/apple';
-import Exxon from '../components/cards/exxon';
-import ATT from '../components/cards/att';
-import Facebook from '../components/cards/facebook';
-import Disney from '../components/cards/disney';
-import Microsoft from '../components/cards/microsoft';
-import Tesla from '../components/cards/tesla';
-import Netflix from '../components/cards/netflix';
-import moment from 'moment';
-import 'moment-timezone';
-import { fetchData } from '../services/apicall';
+import React from "react";
+import Banner from "../components/banner";
+import Apple from "../components/cards/apple";
+import Exxon from "../components/cards/exxon";
+import ATT from "../components/cards/att";
+import Facebook from "../components/cards/facebook";
+import Disney from "../components/cards/disney";
+import Microsoft from "../components/cards/microsoft";
+import Tesla from "../components/cards/tesla";
+import Netflix from "../components/cards/netflix";
+import moment from "moment";
+import "moment-timezone";
+import { fetchData } from "../services/apicall";
+import Loader from "../components/loader";
 
 const Homepage = () => {
   const [apple, setApple] = React.useState({});
@@ -21,41 +22,43 @@ const Homepage = () => {
   const [microsoft, setMicrosoft] = React.useState([]);
   const [tesla, setTesla] = React.useState([]);
   const [netflix, setNetflix] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const ap = await fetchData('AAPL');
+        const ap = await fetchData("AAPL");
         setApple(ap.data);
-        const ex = await fetchData('XOM');
+        const ex = await fetchData("XOM");
         setExxon(ex.data);
-        const t = await fetchData('T');
+        const t = await fetchData("T");
         setAtt(t.data);
-        const fb = await fetchData('FB');
+        const fb = await fetchData("FB");
         setFacebook(fb.data);
-        const dis = await fetchData('DIS');
+        const dis = await fetchData("DIS");
         setDisney(dis.data);
-        const ms = await fetchData('MSFT');
+        const ms = await fetchData("MSFT");
         setMicrosoft(ms.data);
-        const tl = await fetchData('TSLA');
+        const tl = await fetchData("TSLA");
         setTesla(tl.data);
-        const nf = await fetchData('NFLX');
+        const nf = await fetchData("NFLX");
         setNetflix(nf.data);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
     };
     getData();
-    let newYorkTime = moment().tz('America/New_York').format('HH:mm');
+    let newYorkTime = moment().tz("America/New_York").format("HH:mm");
     let newYorkDate = moment()
-      .tz('America/New_York')
-      .format('YYYY-MM-DD hh:mm');
-    let dayName = moment(newYorkDate).format('dddd');
+      .tz("America/New_York")
+      .format("YYYY-MM-DD hh:mm");
+    let dayName = moment(newYorkDate).format("dddd");
     if (
-      newYorkTime >= '09:30' &&
-      newYorkTime <= '16:00' &&
-      dayName !== 'Saturday' &&
-      'Sunday'
+      newYorkTime >= "09:30" &&
+      newYorkTime <= "16:00" &&
+      dayName !== "Saturday" &&
+      "Sunday"
     ) {
       //Make call at 9:30am
       setInterval(() => {
@@ -94,14 +97,21 @@ const Homepage = () => {
   return (
     <div>
       <Banner />
-      <Apple data={apple} />
-      <Exxon data={exxon} />
-      <ATT data={att} />
-      <Facebook data={facebook} />
-      <Disney data={disney} />
-      <Microsoft data={microsoft} />
-      <Tesla data={tesla} />
-      <Netflix data={netflix} />
+
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div>
+          <Apple data={apple} />
+          <Exxon data={exxon} />
+          <ATT data={att} />
+          <Facebook data={facebook} />
+          <Disney data={disney} />
+          <Microsoft data={microsoft} />
+          <Tesla data={tesla} />
+          <Netflix data={netflix} />
+        </div>
+      )}
     </div>
   );
 };
