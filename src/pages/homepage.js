@@ -1,17 +1,18 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import Banner from "../components/banner";
-import Apple from "../components/cards/apple";
-import Exxon from "../components/cards/exxon";
-import ATT from "../components/cards/att";
-import Facebook from "../components/cards/facebook";
-import Disney from "../components/cards/disney";
-import Microsoft from "../components/cards/microsoft";
-import Tesla from "../components/cards/tesla";
-import Netflix from "../components/cards/netflix";
 import moment from "moment";
 import "moment-timezone";
 import { fetchData } from "../services/apicall";
 import Loader from "../components/loader";
+
+const Apple = lazy(() => import("../components/cards/apple"));
+const Exxon = lazy(() => import("../components/cards/exxon"));
+const ATT = lazy(() => import("../components/cards/att"));
+const Facebook = lazy(() => import("../components/cards/facebook"));
+const Disney = lazy(() => import("../components/cards/disney"));
+const Microsoft = lazy(() => import("../components/cards/microsoft"));
+const Tesla = lazy(() => import("../components/cards/tesla"));
+const Netflix = lazy(() => import("../components/cards/netflix"));
 
 const Homepage = () => {
   const [apple, setApple] = React.useState({});
@@ -67,49 +68,37 @@ const Homepage = () => {
     }
   }, []);
 
-  // setInterval(() => {
-  //   if (localTime >= "04:04" && localTime <= "11:50") {
-  //     //Make call at 9:30am
-  //     axios.get(
-  //       url,
-
-  //       {
-  //         headers: {
-  //           Accept: "application/json",
-  //           Authorization: "Bearer Vy8fLhiAyRiTTaJLbPWPlAppg2hu",
-  //         },
-  //       }
-  //     );
-  //   }
-  // }, 10000);
-
-  //let newYorkTime = moment().tz("America/New_York").format("hh:mm");
-
-  //  900000
-  // let newYorkTime = moment().tz("America/New_York").format("YYYY-MM-DD");
-
-  //let localTime = moment().format("hh:mm");
-
-  //console.log(newYorkTime);
-  //console.log(localDay);
-  //console.log(dayName);
-
   return (
     <div>
       <Banner />
-
       {isLoading ? (
         <Loader />
       ) : (
         <div>
-          <Apple data={apple} />
-          <Exxon data={exxon} />
-          <ATT data={att} />
-          <Facebook data={facebook} />
-          <Disney data={disney} />
-          <Microsoft data={microsoft} />
-          <Tesla data={tesla} />
-          <Netflix data={netflix} />
+          <Suspense fallback={<div />}>
+            <Apple data={apple} />
+          </Suspense>
+          <Suspense fallback={<div />}>
+            <Exxon data={exxon} />
+          </Suspense>
+          <Suspense fallback={<div />}>
+            <ATT data={att} />
+          </Suspense>
+          <Suspense fallback={<div />}>
+            <Facebook data={facebook} />
+          </Suspense>
+          <Suspense fallback={<div />}>
+            <Disney data={disney} />
+          </Suspense>
+          <Suspense fallback={<div />}>
+            <Microsoft data={microsoft} />
+          </Suspense>
+          <Suspense fallback={<div />}>
+            <Tesla data={tesla} />
+          </Suspense>
+          <Suspense fallback={<div />}>
+            <Netflix data={netflix} />
+          </Suspense>
         </div>
       )}
     </div>
