@@ -27,7 +27,7 @@ const ATT = ({ data: { price, open, close, high, low, volume, vwap } }) => {
     <div>
       <CardWrapper>
         <Card className='card'>
-          <Title>Apple</Title>
+          <Title>AT & T</Title>
           <Card.Grid className='card-grid' hoverable={false}>
             Price: ${price}
           </Card.Grid>
