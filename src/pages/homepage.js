@@ -48,23 +48,7 @@ const Homepage = () => {
       }
     };
     getData();
-    // if (
-    //   newYorkTime >= "14:30" &&
-    //   newYorkTime <= "20:58" &&
-    //   dayName !== "Saturday" &&
-    //   "Sunday"
-    // ) {
-    //   //Make call at 9:30am
-    //   setInterval(() => {
-    //     getData();
-    //   }, 30000);
-    // }
   }, []);
-
-  // let now = moment()
-  //   .tz("America/New_York")
-  //   .format("YYYY-MM-DDTHH:mm:ss+0000", moment.ISO_8601);
-  // console.log(now);
 
   return (
     <div>
