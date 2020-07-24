@@ -43,7 +43,6 @@ const Homepage = () => {
         const nf = await fetchData("NFLX");
         setNetflix(nf.data);
         setIsLoading(false);
-        console.log(fb.data);
       } catch (error) {
         console.log(error);
       }

@@ -32,7 +32,7 @@ const ATT = ({ data: { open, close, high, low, volume, adj_high } }) => {
     <div>
       <CardWrapper>
         <Card className='card'>
-          <Title>Apple</Title>
+          <Title>AT & T</Title>
           <Card.Grid className='card-grid' hoverable={false}>
             Open: {open}
           </Card.Grid>
