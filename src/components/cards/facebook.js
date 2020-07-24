@@ -26,17 +26,12 @@ const modifyPrice = (price) => {
   return Math.round((price + Number.EPSILON) * 100) / 100;
 };
 
-const Facebook = ({
-  data: { price, open, close, high, low, volume, vwap },
-}) => {
+const Facebook = ({ data: { open, close, high, low, volume, adj_high } }) => {
   return (
     <div>
       <CardWrapper>
         <Card className='card'>
-          <Title>Facebook</Title>
-          <Card.Grid className='card-grid' hoverable={false}>
-            Price: ${modifyPrice(price)}
-          </Card.Grid>
+          <Title>Apple</Title>
           <Card.Grid className='card-grid' hoverable={false}>
             Open: {open}
           </Card.Grid>
@@ -51,6 +46,9 @@ const Facebook = ({
           </Card.Grid>
           <Card.Grid className='card-grid' hoverable={false}>
             Volume: {volume}
+          </Card.Grid>
+          <Card.Grid className='card-grid' hoverable={false}>
+            Adjusted High: ${modifyPrice(adj_high)}
           </Card.Grid>
         </Card>
       </CardWrapper>

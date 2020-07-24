@@ -1,28 +1,15 @@
 import axios from "axios";
-import moment from "moment";
+
 import "moment-timezone";
 
-// console.log(newYorkTime);
-// console.log(newYorkDate);
 export const fetchData = async (companyData) => {
-  let newYorkTime = moment().tz("America/New_York").format("HH:mm");
-  let newYorkDate = moment().tz("America/New_York").format("YYYY-MM-DD");
-  let url = `https://sandbox.tradier.com/v1/markets/timesales?symbol=${companyData}&interval=1min&start=${newYorkDate} ${newYorkTime}&end=${newYorkDate} ${newYorkTime}&session_filter=open`;
+  let url = `http://api.marketstack.com/v1/eod/latest/?access_key=${process.env.REACT_API_KEY}&symbols=${companyData}&limit=1`;
   try {
     const {
-      data: { series },
-    } = await axios.get(
-      decodeURI(url),
-
-      {
-        headers: {
-          Accept: "application/json",
-          Authorization: "Bearer Vy8fLhiAyRiTTaJLbPWPlAppg2hu",
-        },
-      }
-    );
+      data: { data },
+    } = await axios.get(url);
     const modifiedData = {
-      data: series.data,
+      data: data[0],
     };
     return modifiedData;
   } catch (error) {

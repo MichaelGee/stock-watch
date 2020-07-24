@@ -1,7 +1,5 @@
 import React, { Suspense, lazy } from "react";
 import Banner from "../components/banner";
-import moment from "moment";
-import "moment-timezone";
 import { fetchData } from "../services/apicall";
 import Loader from "../components/loader";
 
@@ -45,28 +43,29 @@ const Homepage = () => {
         const nf = await fetchData("NFLX");
         setNetflix(nf.data);
         setIsLoading(false);
+        console.log(fb.data);
       } catch (error) {
         console.log(error);
       }
     };
     getData();
-    let newYorkTime = moment().tz("America/New_York").format("HH:mm");
-    let newYorkDate = moment()
-      .tz("America/New_York")
-      .format("YYYY-MM-DD HH:mm");
-    let dayName = moment(newYorkDate).format("dddd");
-    if (
-      newYorkTime >= "09:30" &&
-      newYorkTime <= "16:00" &&
-      dayName !== "Saturday" &&
-      "Sunday"
-    ) {
-      //Make call at 9:30am
-      setInterval(() => {
-        getData();
-      }, 30000);
-    }
+    // if (
+    //   newYorkTime >= "14:30" &&
+    //   newYorkTime <= "20:58" &&
+    //   dayName !== "Saturday" &&
+    //   "Sunday"
+    // ) {
+    //   //Make call at 9:30am
+    //   setInterval(() => {
+    //     getData();
+    //   }, 30000);
+    // }
   }, []);
+
+  // let now = moment()
+  //   .tz("America/New_York")
+  //   .format("YYYY-MM-DDTHH:mm:ss+0000", moment.ISO_8601);
+  // console.log(now);
 
   return (
     <div>
