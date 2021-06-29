@@ -42,7 +42,6 @@ const Homepage = () => {
         setTesla(tl.data);
         const nf = await fetchData("NFLX");
         setNetflix(nf.data);
-        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -53,9 +52,6 @@ const Homepage = () => {
   return (
     <div>
       <Banner />
-      {isLoading ? (
-        <Loader />
-      ) : (
         <div>
           <Suspense fallback={<div />}>
             <Apple data={apple} />
@@ -82,7 +78,6 @@ const Homepage = () => {
             <Netflix data={netflix} />
           </Suspense>
         </div>
-      )}
     </div>
   );
 };

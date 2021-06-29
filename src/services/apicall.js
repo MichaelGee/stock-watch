@@ -3,7 +3,7 @@ import axios from "axios";
 import "moment-timezone";
 
 export const fetchData = async (companyData) => {
-  let url = `https://cors-anywhere.herokuapp.com/http://api.marketstack.com/v1/eod/latest/?access_key=${process.env.REACT_APP_API_KEY}&symbols=${companyData}&limit=1`;
+  let url = `http://api.marketstack.com/v1/eod?access_key=${process.env.REACT_APP_API_KEY}&symbols=${companyData}`;
   try {
     const {
       data: { data },
@@ -16,3 +16,5 @@ export const fetchData = async (companyData) => {
     console.log(error);
   }
 };
+
+
